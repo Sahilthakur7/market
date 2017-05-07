@@ -25,11 +25,17 @@
       <div id="menubar">
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-          <li><%= link_to "Home", "#"%></li>
-          <li><%= link_to "Players", "#"%></li>
-          <li><%= link_to "Clubs", "#"%></li>
+          <li><%= link_to "Home", root_path%></li>
+          <li><%= link_to "Players", players_path %></li>
+          <li><%= link_to "Clubs", clubs_path%></li>
           <li><%= link_to "Dealings", "#"%></li>
           <li><%= link_to "Contact"%></li>
+          <% unless agent_signed_in? %>
+          <li><%= link_to "Sign Up", new_agent_registration_path%>
+          <li><%= link_to "Log In", new_agent_session_path%>
+      <% else%>
+          <li><%= link_to "Log out", destroy_agent_session_path, method: :delete %>
+      <%end%>
         </ul>
       </div>
     </div>
@@ -83,13 +89,6 @@
       <div id="content">
           <%= yield%>
         <!-- insert the page content here -->
-        <h2>Browser Compatibility</h2>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 9</li>
-          <li>FireFox 25</li>
-          <li>Google Chrome 31</li>
-        </ul>
       </div>
     </div>
     <div id="content_footer"></div>

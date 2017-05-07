@@ -1,0 +1,8 @@
+<h1><%= @player.name %></h1> 
+Position:<%= @player.position%>
+Age:<%= @player.age %>
+Value:<%= @player.value%>M $
+
+<div id="photo">
+    <%= image_tag(@player.avatar.url(:medium))%>
+</div>
