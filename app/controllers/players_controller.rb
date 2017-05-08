@@ -5,6 +5,12 @@ class PlayersController < ApplicationController
     end
 
     def create
+        @player = Player.create(player_params)
+        @player.agent_id = current_agent.id
+        if @player.save
+            flash[:success] = "Player added to the transfer market"
+            redirect_to root_path
+        end
 
     end
 
@@ -21,10 +27,17 @@ class PlayersController < ApplicationController
     end
 
     def new
+        @player = Player.new
 
     end
 
     def update
 
+    end
+
+    private
+
+    def player_params
+        params.require(:player).permit(:name,:position,:value,:club,:avatar)
     end
 end

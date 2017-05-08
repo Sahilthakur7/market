@@ -1,4 +1,8 @@
-<h2>All the players on the transfer market right now:</h2>
+<h3><%= link_to "Your Players", players_agent_path(current_agent) %></h3>
+</br>
+</br>
+<h2>All Players:</h2>
 <% @players.each do |player|%>
-    <%= link_to player.name, player_path(player) %>
+    <%= link_to player.name, player_path(player)%>
+    </br>
 <%end%>

@@ -1,0 +1,9 @@
+<%= simple_form_for(@player) do |f|%>
+    <div class="field">
+        <%= f.input :name, label: "Name"%>
+        <%= f.input :value, label: "Value(M $)"%>
+        <%= f.input :position, label: "Position"%>
+        <%= f.file_field :avatar, label: "Avatar"%>
+        <%= f.button :submit, class: "btn-primary"%>
+        </div>
+    <%end%>
