@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :clubreps
   devise_for :agents, :controllers => { registrations: 'registrations' }
     root to: "static_pages#home"
-    resources :players
+    get '/options' => "static_pages#options"
+    get '/optionsn' => "static_pages#optionsn"
     resources :clubs
+    resources :clubreps
+    resources :players
     resources :agents do
         member do
         get :players

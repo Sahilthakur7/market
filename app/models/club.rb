@@ -1,4 +1,10 @@
 class Club < ActiveRecord::Base
-    has_attached_file :avatar, :styles=> { medium: "300x300" }
-    has_many :players
+    validates :name, presence: true, uniqueness: true
+    validates :stars, presence: true
+    validates :country, presence: true
+
+    has_attached_file :avatar, :styles=>{ medium: "300x300",thumb: "150x150" }
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+    has_one :clubrep
+
 end

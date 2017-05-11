@@ -19,6 +19,8 @@ gem 'jquery-rails'
 gem "devise", "~> 3.4.1"
 gem "simple_form", "~> 3.1.0"
 gem 'paperclip'
+gem 'bootstrap-sass', "~> 3.3"
+gem 'country_select'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

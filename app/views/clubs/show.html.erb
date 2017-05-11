@@ -2,3 +2,7 @@
 Country: <%= @club.country %>
 Wealth: <%= @club.wealth%>
 Stars: <%= @club.stars%>
+
+<div class="photo">
+    <%= image_tag @club.avatar.url(:medium)%>
+    </div>

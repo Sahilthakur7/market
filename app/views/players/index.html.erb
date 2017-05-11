@@ -1,4 +1,7 @@
+<% if agent_signed_in?%>
 <h3><%= link_to "Your Players", players_agent_path(current_agent) %></h3>
+<%end%>
+
 </br>
 </br>
 <h2>All Players:</h2>

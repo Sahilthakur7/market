@@ -1,0 +1,20 @@
+<%=simple_form_for(@club) do |f|%>
+
+    <% if @club.errors.any? %>
+        <% @club.errors.full_messages.each do |message|%>
+            <li><%= message%></li>
+        <%end%>
+    <%end%>
+    <div class="field">
+    <%= f.input :name, label: "Name"%>
+    <%= f.input :stars , label: "Stars"%>
+
+    <%= f.input :wealth, label: "Wealth"%>
+    <%= f.country_select :country , label: "Country"%>
+    </br>
+    </br>
+    <%= f.file_field :avatar, label: "Avatar"%>
+    </br>
+    <%= f.button :submit, class: "btn-primary" %>
+    </div>
+<%end%>

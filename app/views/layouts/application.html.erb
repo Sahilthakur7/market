@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <% flash.each do |key,value|%>
+        <%= value %>
+    <%end%>
   <div id="main">
     <div id="header">
       <div id="logo">
@@ -30,14 +33,19 @@
           <li><%= link_to "Clubs", clubs_path%></li>
           <li><%= link_to "Dealings", "#"%></li>
           <li><%= link_to "Contact"%></li>
-          <% unless agent_signed_in? %>
-          <li><%= link_to "Sign Up", new_agent_registration_path%>
-          <li><%= link_to "Log In", new_agent_session_path%>
-      <% else%>
-          <li><%= link_to "Log out", destroy_agent_session_path, method: :delete %>
-          <%= link_to "Agent Area", agent_path(current_agent)%>
+          <% unless agent_signed_in? || clubrep_signed_in? %>
+          <li><%= link_to "Sign Up", optionsn_path %>
+          <li><%= link_to "Log In", options_path %>
       <%end%>
+      <% if agent_signed_in?%> 
+          <li><%= link_to "Log out", destroy_agent_session_path, method: :delete %></li>
+          <li> <%= link_to "Agent Area", agent_path(current_agent)%></li>
+      <%end%>
+      <% if clubrep_signed_in?%>
+          <li><%= link_to "Log out", destroy_clubrep_session_path , method: :delete%></li>
+          <li><%= link_to "Rep Area", clubrep_path(current_clubrep)%></li>
         </ul>
+    <%end%>
       </div>
     </div>
     <div id="content_header"></div>

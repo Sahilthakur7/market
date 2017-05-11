@@ -1,9 +1,19 @@
 class ClubsController < ApplicationController
     def new
+        @club = Club.new
 
     end
 
     def create
+        @club = Club.create(club_params)
+        @club.clubrep = current_clubrep
+        
+        if @club.save
+            flash[:success] = "Your club has been registered."
+            redirect_to clubs_path
+        else
+            render 'new'
+        end
 
     end
 
@@ -27,4 +37,11 @@ class ClubsController < ApplicationController
     def destroy
 
     end
+
+    private
+
+    def club_params
+        params.require(:club).permit(:wealth,:name,:country,:stars,:avatar)
+    end
+
 end
