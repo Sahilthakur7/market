@@ -6,3 +6,10 @@ Value:<%= @player.value%>M $
 <div id="photo">
     <%= image_tag(@player.avatar.url(:medium))%>
 </div>
+
+<div class="Club">
+    <% if current_agent == @player.agent%>
+        <%= render 'clubinfo'%>
+    <%end%>
+</div>
+

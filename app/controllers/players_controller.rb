@@ -32,12 +32,18 @@ class PlayersController < ApplicationController
     end
 
     def update
+        @player = Player.find(params[:id])
+        if @player.update_attributes(player_params)
 
+            redirect_to @player
+        else
+            render 'show'
+        end
     end
 
     private
 
     def player_params
-        params.require(:player).permit(:name,:position,:value,:club,:avatar)
+        params.require(:player).permit(:name,:position,:value,:club_id,:avatar)
     end
 end

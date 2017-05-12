@@ -1,0 +1,13 @@
+<% if @player.club %>
+    <h3>
+    <%= link_to @player.club.name, club_path(@player.club) %>
+    </h3>
+<%else%>
+    <%= form_for(@player) do |f|%>
+        <%= f.label :Club%>
+        <%= f.collection_select( :club_id , Club.all, :id , :name)%>
+        <%= f.submit %>
+<%end%>
+<%end%>
+
+
