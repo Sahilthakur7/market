@@ -1,0 +1,6 @@
+<% if !@player.status%>
+<%= form_for(@player) do |f|%>
+    <%= f.select :status , ['Indispensable', 'Key Player', 'Prospect', 'Regular', 'Rotation', 'Fringe' , 'For Transfer']%>
+    <%= f.submit %>
+<%end%>
+<%end%>

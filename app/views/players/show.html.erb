@@ -1,15 +1,50 @@
-<h1><%= @player.name %></h1> 
-Position:<%= @player.position%>
-Age:<%= @player.age %>
-Value:<%= @player.value%>M $
 
 <div id="photo">
     <%= image_tag(@player.avatar.url(:medium))%>
 </div>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th><Age></th>
+            <th>Position</th>
+            <th>Value</th>
+            <th>Club</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th><%=@player.name%></th>
+            <th><%=@player.age%></th>
+            <th><%=@player.position%></th>
+            <th><%=@player.value%>M $</th>
+            <th><%if @player.club %>
+                <%= link_to @player.club.name , @player.club%>
+            <%else%>
+                -
+            <%end%></th>
+            <th><% if @player.status%>
+                <%= @player.status %>
+            <%else%>
+                -
+            <%end%></th>
+        </tr>
+        </tbody>
+</table>
+
+
+
+</br>
 <div class="Club">
     <% if current_agent == @player.agent%>
         <%= render 'clubinfo'%>
     <%end%>
+    <% if @player.club_id != nil%>
+    <% if current_clubrep == @player.club.clubrep %>
+        <%= render 'status'%>
+    <%end%>
+<%end%>
 </div>
 

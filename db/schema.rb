@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511152401) do
+ActiveRecord::Schema.define(version: 20170512092325) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170511152401) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "agent_id"
+    t.string   "status"
   end
 
   add_index "players", ["agent_id"], name: "index_players_on_agent_id"

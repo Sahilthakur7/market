@@ -1,8 +1,26 @@
-<h1><%= @club.name %></h1>
-Country: <%= @club.country %>
-Wealth: <%= @club.wealth%>
-Stars: <%= @club.stars%>
 
 <div class="photo">
     <%= image_tag @club.avatar.url(:medium)%>
     </div>
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Wealth</th>
+            <th>Stars</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th><%=@club.name%></th>
+            <th><%=@club.country%></th>
+            <th><%=@club.wealth%></th>
+            <th><%=@club.stars%></th>
+        </tr>
+        </tbody>
+</table>
+
+
+
