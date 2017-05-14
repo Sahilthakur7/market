@@ -1,0 +1,6 @@
+<h1>You are about to send an enquiry.</h1>
+<p>The enquiry will be sent to <%=@player.agent.name%> regarding the availabilty of <%= @player.name%> for <%= current_clubrep.club.name%>.</p>
+
+<%= simple_form_for [@player, @enquiry] do |f|%>
+    <%= f.button :submit,class: " btn-primary"%>
+<%end%>

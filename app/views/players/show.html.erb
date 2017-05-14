@@ -1,8 +1,14 @@
-
-<div id="photo">
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
     <%= image_tag(@player.avatar.url(:medium))%>
-</div>
-
+    <% 5.times do%>
+    &emsp;
+    &emsp;
+<%end%>
+<% if clubrep_signed_in? && (current_clubrep.club != @player.club)%>
+    <%= link_to "Enquire"  , new_player_enquiry_path(@player), class: 'btn btn-success'%>
+<%end%>
 <table class="table">
     <thead>
         <tr>
@@ -35,9 +41,7 @@
 </table>
 
 
-
 </br>
-<div class="Club">
     <% if current_agent == @player.agent%>
         <%= render 'clubinfo'%>
     <%end%>
@@ -47,4 +51,5 @@
     <%end%>
 <%end%>
 </div>
-
+</div>
+</div>

@@ -7,4 +7,7 @@ class AgentsController < ApplicationController
     def players
         @players = Player.all
     end
+
+    def dealings
+    end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512092325) do
+ActiveRecord::Schema.define(version: 20170514041153) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 20170512092325) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "enquiries", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "enquiries", ["club_id"], name: "index_enquiries_on_club_id"
+  add_index "enquiries", ["player_id"], name: "index_enquiries_on_player_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "name"

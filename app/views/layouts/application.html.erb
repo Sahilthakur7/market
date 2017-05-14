@@ -31,7 +31,12 @@
           <li><%= link_to "Home", root_path%></li>
           <li><%= link_to "Players", players_path %></li>
           <li><%= link_to "Clubs", clubs_path%></li>
-          <li><%= link_to "Dealings", "#"%></li>
+          <% if clubrep_signed_in?%>
+              <li><%= link_to "Dealings", dealings_clubrep_path(current_clubrep) %></li>
+      <%end%>
+      <% if agent_signed_in?%>
+          <li><%= link_to "Dealings", dealings_agent_path(current_agent)%></li>
+      <%end%>
           <li><%= link_to "Contact"%></li>
           <% unless agent_signed_in? || clubrep_signed_in? %>
           <li><%= link_to "Sign Up", optionsn_path %>

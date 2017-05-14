@@ -5,11 +5,18 @@ Rails.application.routes.draw do
     get '/options' => "static_pages#options"
     get '/optionsn' => "static_pages#optionsn"
     resources :clubs
-    resources :clubreps
-    resources :players
+    resources :clubreps do
+        member do
+            get :dealings
+        end
+    end
+    resources :players do
+        resources :enquiries
+    end
     resources :agents do
         member do
         get :players
+        get :dealings
     end
     end
   # The priority is based upon order of creation: first created -> highest priority.
