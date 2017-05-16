@@ -1,9 +1,11 @@
 <h2>Responses:<h2>
 <% @enquiries.each_with_index do |enquiry,index|%>
+    <%if enquiry.responded == true%>
     <% if enquiry.seen == true%>
-    <%=link_to enquiry.player.name, enquiry_path(enquiry)%>(Seen)
+    <%=link_to enquiry.player.name, player_enquiry_path(enquiry.player,enquiry)%>(Seen)
     <%else%>
-        <%=link_to enquiry.player.name, enquiry_path(enquiry)%>
+        <%=link_to enquiry.player.name, player_enquiry_path(enquiry.player,enquiry)%>
     <%end%>
+<%end%>
 
 <%end%>

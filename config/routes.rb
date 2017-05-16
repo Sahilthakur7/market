@@ -10,11 +10,12 @@ Rails.application.routes.draw do
             get :dealings
         end
     end
-    resources :players 
+    resources :players do 
     resources :enquiries do
         member do
             get :respond
         end
+    end
     end
     resources :agents do
         member do

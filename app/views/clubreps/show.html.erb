@@ -1,5 +1,5 @@
-<% if current_clubrep.club_id == 0%>
+<% if current_clubrep.club_id == nil%>
 <%= render 'shared/club_form'%>
 <% else %>
-   You are the representative of <%= @club.name%>
+   You are the representative of <%=link_to @club.name, club_path(@club)%>
    <%end%>

@@ -5,7 +5,7 @@
 </br>
 </br>
 
-<%= simple_form_for(@enquiry) do |f|%>
+<%= simple_form_for([@player,@enquiry]) do |f|%>
     <%= f.input :seen%>
     <%=f.button :submit, "Select", class: "btn btn-small"%>
 <%end%>

@@ -6,8 +6,9 @@ class EnquiriesController < ApplicationController
     end
 
     def create
-        @enquiry = @player.enquiries.new
+        @enquiry = Enquiry.new
         @enquiry.club = current_clubrep.club
+        @enquiry.player = @player
         if @enquiry.save
             redirect_to dealings_clubrep_path(current_clubrep)
         else
@@ -45,6 +46,6 @@ class EnquiriesController < ApplicationController
     end
 
     def set_player
-        @player = Enquiry.find(params[:id]).player
+        @player = Player.find(params[:player_id])
     end
 end
