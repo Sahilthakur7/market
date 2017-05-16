@@ -5,6 +5,7 @@ class ClubrepsController < ApplicationController
     end
 
     def dealings
+        @enquiries = Enquiry.all.where(club: current_clubrep.club)
 
     end
 end

@@ -8,6 +8,22 @@ class AgentsController < ApplicationController
         @players = Player.all
     end
 
-    def dealings
-    end
+          def dealings
+              @enquiries2 = Enquiry.all
+              @x = current_agent
+              @enquiries = Enquiry.select do |enquiry|
+
+                  enquiry.player.in?(current_agent.players)
+              end
+          end
+
+          def respond
+             @enquiry = Enquiry.find(params[:id])
+          end
+
+          private
+
+
+
+
 end

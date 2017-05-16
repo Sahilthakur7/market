@@ -1,0 +1,11 @@
+<strong><%= @enquiry.player.agent.name%>:</strong>
+</br>
+
+<%= @enquiry.response%>
+</br>
+</br>
+
+<%= simple_form_for(@enquiry) do |f|%>
+    <%= f.input :seen%>
+    <%=f.button :submit, "Select", class: "btn btn-small"%>
+<%end%>

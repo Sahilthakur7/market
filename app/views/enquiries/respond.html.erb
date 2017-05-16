@@ -1,0 +1,15 @@
+<h2>Enquiry Response</h2>
+
+Respresentatives have enquired you about the availabilty of <%= @player.name %> for the club <strong><%= @enquiry.club.name%></strong>.
+
+</br>
+<%= @player.name%> currently plays for <strong><%= @player.club.name %></strong> and is regarded as a <%= @player.status%> player.
+
+</br>
+</br>
+<div>
+<%= simple_form_for(@enquiry) do |f|%>
+    <%= f.input :response, label:"Response"%>
+    <%= f.button :submit, 'Respond', class: "btn btn-success" %>
+<%end%>
+</div>

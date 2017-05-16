@@ -1,1 +1,9 @@
-Hellop
+<h2>Responses:<h2>
+<% @enquiries.each_with_index do |enquiry,index|%>
+    <% if enquiry.seen == true%>
+    <%=link_to enquiry.player.name, enquiry_path(enquiry)%>(Seen)
+    <%else%>
+        <%=link_to enquiry.player.name, enquiry_path(enquiry)%>
+    <%end%>
+
+<%end%>
