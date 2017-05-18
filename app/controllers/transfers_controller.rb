@@ -29,7 +29,7 @@ class TransfersController < ApplicationController
     def update
         @transfer = Transfer.find(params[:id])
         @transfer.responded = true
-        if @transfer.update_attributes(enquiry_params)
+        if @transfer.update_attributes(transfer_params)
             if agent_signed_in?
             redirect_to dealings_agent_path(current_agent)
             else 
@@ -48,6 +48,23 @@ class TransfersController < ApplicationController
 
     end
 
+    def preject
+        @transfer = Transfer.find(params[:id])
+        @transfer.personalresponse = "Rejected"
+        @transfer.save!
+        redirect_to root_path
+
+    end
+
+    def paccept
+        @transfer = Transfer.find(params[:id])
+        @transfer.personalresponse = "Accepted"
+        @transfer.save!
+        redirect_to root_path
+
+    end
+
+
     def accept
         @transfer = Transfer.find(params[:id])
         @transfer.responded = true
@@ -58,11 +75,23 @@ class TransfersController < ApplicationController
 
     end
 
+    def personal
+        @transfer = Transfer.find(params[:id])
+    end
+
+    def done
+        @transfer = Transfer.find(params[:id])
+        @player = @transfer.player
+        @player.club = @transfer.club
+        @player.save!
+        redirect_to @player
+    end
+
 
     private
 
     def transfer_params
-        params.require(:transfer).permit(:response,:seen,:bid)
+        params.require(:transfer).permit(:response,:seen,:bid,:salary,:signon)
     end
 
     def set_player

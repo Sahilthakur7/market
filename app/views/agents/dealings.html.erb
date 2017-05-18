@@ -47,3 +47,53 @@
 <%else%>
     No deals as for now.
 <%end%>
+
+<% if @transfers%>
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Player</th>
+            <th>Current Club</th>
+            <th>Transfer From</th>
+            <th>Respond</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @transfers.each_with_index do |enquiry,index|%>
+            <tr>
+                <td>
+                    <%= index+1%>
+
+
+                    </td>
+                <td>
+                    <%=enquiry.player.name%>
+                </td>
+                <td>
+                    <%=enquiry.player.club.name%>
+                    </td>
+                    <td>
+                        <%=enquiry.club.name%>
+                    </td>
+                    <td>
+                        <% if enquiry.personalresponse != nil%>
+                            RESPONDED
+                    <%else%>
+
+                        <%= link_to "Respond",personal_player_transfer_path(enquiry.player,enquiry), class: "btn btn-success"%>
+                    <%end%>
+                    </td>
+
+                    
+                
+            </tr>
+            
+
+        <%end%>
+        </tbody>
+    
+</table>
+<%else%>
+    No deals as for now.
+<%end%>

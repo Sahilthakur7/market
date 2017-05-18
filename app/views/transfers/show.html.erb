@@ -21,7 +21,7 @@
     <% if @transfer.status == "Rejected"%>
 <%= link_to "Negotiate" , new_player_transfer_path(@player), class: 'btn btn-success'%>
 <%else%>
-    <%= link_to "Agent" , '#', class: 'btn btn-success'%>
+    <%= link_to "Agent" , personal_player_transfer_path(@transfer.player,@transfer), class: 'btn btn-success'%>
 
 <%end%>
 <%end%>

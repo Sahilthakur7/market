@@ -15,6 +15,9 @@ class AgentsController < ApplicationController
 
                   enquiry.player.in?(current_agent.players)
               end
+              @transfers = Transfer.select do |transfer|
+                  transfer.player.in?(current_agent.players)
+              end
           end
 
           def respond

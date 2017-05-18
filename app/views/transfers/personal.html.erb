@@ -1,0 +1,39 @@
+<% if clubrep_signed_in?%>
+<% if @transfer.salary == nil%>
+Fill in your deal for <%= @transfer.player.name%>. It will be sent to his agent <%= @transfer.player.agent.name%>.
+</br></br>
+
+<%= simple_form_for([@player,@transfer]) do |f|%>
+    <%=f.input :salary, label: 'Salary(k per week)'%>
+    <%=f.input :signon, label: 'Sign On Fee'%>
+    <%=f.button :submit, class: "btn btn-success"%>
+<%end%>
+<%elsif @transfer.personalresponse == "Accepted"%>
+    Your offer for <%= @transfer.player.name %> has been accepted by both the club and his agent. He can now sign for <%= @transfer.club.name%>.
+    <%= button_to "Sign", done_player_transfer_path(@transfer.player,@transfer), class: "btn btn-success"%>
+<%elsif @transfer.personalresponse == "Rejected"%>
+    Sorry, <%= @transfer.player.name%> has rejected your personal offer. He would like to remain at <%=@transfer.player.club.name%>
+<%else%>
+    Your personal offer for <%=@transfer.player.name%> has been sent to <%=@transfer.player.agent.name%>.
+    His response will be seen in the Dealings Area.
+<%end%>
+<%end%>
+
+<% if agent_signed_in?%>
+    There has been an offer for your player <%= @transfer.player.name%> from <%= @transfer.club.name%> which has been accepted by <%=@transfer.player.club.name%>.
+    </br></br>
+    Please respond to their personal deal.
+    </br></br>
+    Salary: <%=@transfer.salary%> k per week
+    </br>
+    Sign On Fee: <%=@transfer.signon%> k
+    </br></br></br>
+<%= button_to "reject", { action: "preject" }, class: "btn btn-danger"%>
+<% 10.times do%>
+    &emsp;
+<%end%>
+<%= button_to "accept", { action: "paccept" } , class: "btn btn-success"%>
+
+
+<%end%>
+

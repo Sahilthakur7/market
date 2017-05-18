@@ -22,6 +22,10 @@ Rails.application.routes.draw do
             get :respond
             post :reject
             post :accept
+            get :personal
+            post :preject
+            post :paccept
+            post :done
         end
     end
     end
