@@ -1,4 +1,4 @@
-<h2>Responses:<h2>
+<h2>Responses:</h2>
 <% @enquiries.each_with_index do |enquiry,index|%>
     <%if enquiry.responded == true%>
     <% if enquiry.seen == true%>
@@ -7,5 +7,25 @@
         <%=link_to enquiry.player.name, player_enquiry_path(enquiry.player,enquiry)%>
     <%end%>
 <%end%>
-
 <%end%>
+</br>
+
+<% @transferbids.each do |transfer|%>
+    <% if transfer.responded == true%>
+        <%= link_to transfer.player.name, player_transfer_path(transfer.player,transfer)%>(<%= transfer.status%>)
+    <%end%>
+<%end%>
+
+
+</br>
+</br>
+<h2>Bids:</h2>
+<% @transfers.each do |transfer|%>
+    <% if transfer.seen == true%>
+    <%=link_to transfer.player.name, player_transfer_path(transfer.player,transfer)%>(Seen)
+    <%else%>
+        <%=link_to transfer.player.name, player_transfer_path(transfer.player,transfer)%>
+    <%end%>
+<%end%>
+
+

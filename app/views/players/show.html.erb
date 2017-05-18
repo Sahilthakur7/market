@@ -8,6 +8,7 @@
 <%end%>
 <% if clubrep_signed_in? && (current_clubrep.club != @player.club)%>
     <%= link_to "Enquire"  , new_player_enquiry_path(@player), class: 'btn btn-success'%>
+    <%= link_to "Transfer" , new_player_transfer_path(@player), class: 'btn btn-success'%>
 <%end%>
 <table class="table">
     <thead>

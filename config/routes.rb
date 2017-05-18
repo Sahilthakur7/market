@@ -15,8 +15,17 @@ Rails.application.routes.draw do
         member do
             get :respond
         end
+    
+    end
+    resources :transfers do
+        member do 
+            get :respond
+            post :reject
+            post :accept
+        end
     end
     end
+
     resources :agents do
         member do
         get :players

@@ -1,0 +1,29 @@
+<% if @transfer.player.club == current_clubrep.club%>
+<% if @transfer.responded == nil%>
+<strong><%= @transfer.club.name%></strong> has put in a bid of <%= @transfer.bid%> million dollars for your player <%= @transfer.player.name%>
+</br>
+</br>
+<%= button_to "reject", { action: "reject" }, class: "btn btn-danger"%>
+<% 10.times do%>
+    &emsp;
+<%end%>
+<%= button_to "accept", { action: "accept" } , class: "btn btn-success"%>
+<%= simple_form_for(@transfer) do |f|%>
+    <%=f.input :seen, label: "seen"%>
+    <%=f.button :submit, "Seen"%>
+<%end%>
+
+<%else%>
+    You have <%= @transfer.status%> a transfer offer of <%= @transfer.bid%> million dollars from <%= @transfer.club.name%>. Your response has been sent to their club officials.
+
+<%end%>
+
+<%else%>
+    Your offer for <%= @transfer.player.name%> has been <%= @transfer.status%> by <%= @transfer.player.club.name%>. Your bid was of <%= @transfer.bid%>million dollars.
+    </br>
+    </br>
+<%= link_to "Negotiate" , new_player_transfer_path(@player), class: 'btn btn-success'%>
+
+<%end%>
+
+

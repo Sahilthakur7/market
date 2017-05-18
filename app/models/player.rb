@@ -5,4 +5,5 @@ class Player < ActiveRecord::Base
     belongs_to :club
     validates :agent_id, presence: true
     has_many :enquiries
+    has_many :transfers
 end
