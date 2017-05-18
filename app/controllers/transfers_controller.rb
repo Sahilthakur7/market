@@ -42,6 +42,7 @@ class TransfersController < ApplicationController
         @transfer = Transfer.find(params[:id])
         @transfer.responded = true
         @transfer.status = "Rejected"
+        @transfer.seen = true
         @transfer.save!
         redirect_to root_path
 
@@ -51,6 +52,7 @@ class TransfersController < ApplicationController
         @transfer = Transfer.find(params[:id])
         @transfer.responded = true
         @transfer.status = "Accepted"
+        @transfer.seen = true
         @transfer.save!
         redirect_to root_path
 

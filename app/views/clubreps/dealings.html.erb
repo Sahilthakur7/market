@@ -6,11 +6,13 @@
     <%else%>
         <%=link_to enquiry.player.name, player_enquiry_path(enquiry.player,enquiry)%>
     <%end%>
+    </br>
 <%end%>
 <%end%>
 </br>
 
 <% @transferbids.each do |transfer|%>
+    </br>
     <% if transfer.responded == true%>
         <%= link_to transfer.player.name, player_transfer_path(transfer.player,transfer)%>(<%= transfer.status%>)
     <%end%>

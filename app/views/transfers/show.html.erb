@@ -8,10 +8,6 @@
     &emsp;
 <%end%>
 <%= button_to "accept", { action: "accept" } , class: "btn btn-success"%>
-<%= simple_form_for(@transfer) do |f|%>
-    <%=f.input :seen, label: "seen"%>
-    <%=f.button :submit, "Seen"%>
-<%end%>
 
 <%else%>
     You have <%= @transfer.status%> a transfer offer of <%= @transfer.bid%> million dollars from <%= @transfer.club.name%>. Your response has been sent to their club officials.
@@ -22,8 +18,12 @@
     Your offer for <%= @transfer.player.name%> has been <%= @transfer.status%> by <%= @transfer.player.club.name%>. Your bid was of <%= @transfer.bid%>million dollars.
     </br>
     </br>
+    <% if @transfer.status == "Rejected"%>
 <%= link_to "Negotiate" , new_player_transfer_path(@player), class: 'btn btn-success'%>
+<%else%>
+    <%= link_to "Agent" , '#', class: 'btn btn-success'%>
 
+<%end%>
 <%end%>
 
 

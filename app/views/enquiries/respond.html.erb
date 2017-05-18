@@ -3,7 +3,10 @@
 Respresentatives have enquired you about the availabilty of <%= @player.name %> for the club <strong><%= @enquiry.club.name%></strong>.
 
 </br>
-<%= @player.name%> currently plays for <strong><%= @player.club.name %></strong> and is regarded as a<% if @player.status then @player.status else puts -%><%end%>  player.
+<%= @player.name%> currently plays for <strong><%= @player.club.name %></strong> and is regarded as a <% if @player.status != nil%>
+    <%= @player.status%>
+<%end%> player.
+
 
 </br>
 </br>
