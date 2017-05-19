@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root to: "static_pages#home"
     get '/options' => "static_pages#options"
     get '/optionsn' => "static_pages#optionsn"
+    get '/calendar' => "static_pages#calendar"
     resources :clubs
     resources :clubreps do
         member do

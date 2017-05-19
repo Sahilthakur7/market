@@ -24,6 +24,7 @@ gem 'country_select'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'sidekiq', '~> 5.0 '
+gem 'simple_calendar', "~> 2.0"
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
