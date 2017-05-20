@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get '/options' => "static_pages#options"
     get '/optionsn' => "static_pages#optionsn"
     get '/calendar' => "static_pages#calendar"
+    get '/convert' => "static_pages#convert"
+    post 'static_pages/conversion' => "static_pages#conversion"
     resources :clubs
     resources :clubreps do
         member do

@@ -1,0 +1,17 @@
+This is the currency convertor of the Transfer Market where you can convert the currency among Dollars,Pounds and Euros.
+</br>
+</br>
+<%= form_tag '/static_pages/conversion', remote: true do%>
+<%= select_tag(:no,options_for_select([['Pounds',1],['Euros',2],['Dollars',3]]), class: "btn btn-secondary dropdown-toggle")%>
+-> 
+<%= select_tag(:no2,options_for_select([['Pounds',1],['Euros',2],['Dollars',3]]), class: "btn btn-secondary dropdown-toggle")%>
+<%= label_tag 'Input'%>
+<%= text_field_tag 'input'%>
+<%= submit_tag "Convert" %>
+
+<%end%>
+
+</br></br>
+<div id="output">
+<strong>OUTPUT: </strong>
+</div>
